@@ -18,6 +18,11 @@ const Navbar = () => {
           About
         </Link>
       </li>
+      <li>
+        <Link href="/dashboard" className="text-lg font-medium">
+          Dashboard
+        </Link>
+      </li>
     </>
   );
   return (
