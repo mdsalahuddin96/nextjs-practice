@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const blogs = [
   {
     id: 1,
@@ -57,15 +55,16 @@ const blogs = [
     image: "/images/es6.png",
   },
 ];
-const BlogPage = () => {
-  return (
-    <div>
-      <h1 className="text-4xl font-bold text-center my-5">Blogs</h1>
-      {blogs.map(blog=><div key={blog.id}>{blog.title}
-        <Link href={`/blogs/${blog.id}`}>Show Details</Link>
-      </div>)}
-    </div>
-  );
+
+const Page = async ({params}) => {
+    const {blogid}=await params;
+    const blog= blogs.find(blog=>blog.id===parseInt(blogid))
+    return (
+        <div>
+            <p className="text-3xl font-bold">{blog.title}</p>
+          <p>{blog.content}</p>  
+        </div>
+    );
 };
 
-export default BlogPage;
+export default Page;
